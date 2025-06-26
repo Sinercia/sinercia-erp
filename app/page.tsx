@@ -1,11 +1,11 @@
 'use client'
 
 import { 
-  Tractor, DollarSign, Users, BarChart3, AlertTriangle,
-  ShoppingCart, Package, Wrench, Calculator, Wheat, UserPlus, Building,
-  MessageCircle, Send, Mic, Sun, Droplets, Wind, TrendingUp,
+  Tractor, DollarSign, Users, BarChart3,
+  ShoppingCart, Package, Wrench, Calculator, Wheat, UserPlus,
+  MessageCircle, Send, Sun, Droplets, Wind, TrendingUp,
   Activity, MapPin, Fuel, Bell, X, ChevronLeft, ChevronRight,
-  Search, HelpCircle, ChevronDown, Home, Settings
+  Search, HelpCircle, Settings
 } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
@@ -677,10 +677,10 @@ export default function SinercIAVerticalMenu() {
           </div>
         </div>
 
-        {/* Menú lateral para móvil - SIN PARTE NEGRA */}
+        {/* Menú lateral para móvil - COMPLETAMENTE SIN NEGRO */}
         {sidebarOpen && (
           <div className="lg:hidden fixed inset-0 z-40">
-            <div className="fixed inset-0 bg-black bg-opacity-50" onClick={() => setSidebarOpen(false)}></div>
+            <div className="fixed inset-0 bg-transparent" onClick={() => setSidebarOpen(false)}></div>
             <div className="fixed top-0 left-0 h-full w-64 bg-slate-800 text-white shadow-2xl transform transition-transform duration-300 ease-out">
               <div className="p-4 pt-20">
                 <nav className="space-y-2">
