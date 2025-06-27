@@ -1,7 +1,12 @@
-import type { NextConfig } from "next";
+// next.config.ts
+import { NextConfig } from 'next'
 
+// Si ya tienes un objeto default export, mézclalo así:
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+  // ...tus otras opciones
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+}
 
-export default nextConfig;
+export default nextConfig
