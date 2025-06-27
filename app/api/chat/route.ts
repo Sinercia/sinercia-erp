@@ -17,11 +17,23 @@ async function obtenerContextoEmpresa() {
     console.log('🔍 Iniciando búsqueda de empresa...')
 console.log('🔗 DATABASE_URL:', process.env.DATABASE_URL?.substring(0, 50) + '...')
 
-  const empresaCount = await prisma.$queryRaw`SELECT COUNT(*) as count FROM empresas`
-const lotesCount = await prisma.$queryRaw`SELECT COUNT(*) as count FROM lotes`
+// Cuenta directamente los registros
+- const empresaCount = await prisma.$queryRaw`SELECT COUNT(*) as count FROM empresas`
+- const lotesCount   = await prisma.$queryRaw`SELECT COUNT(*) as count FROM lotes`
+-
+- console.log('🏢 Empresas encontradas:', (empresaCount as any)[0]?.count || 0)
+- console.log('📦 Cantidad de lotes:',    (lotesCount   as any)[0]?.count || 0)
++ // Cuenta directa con Prisma
++ const totalEmpresas = await prisma.empresas.count()
++ const totalLotes    = await prisma.lotes.count()
++
++ console.log('🏢 Empresas encontradas:', totalEmpresas)
++ console.log('📦 Cantidad de lotes:',    totalLotes)
 
-console.log('🏢 Empresas encontradas:', (empresaCount as any)[0]?.count || 0)
-console.log('🏢 Cantidad de lotes:', (lotesCount as any)[0]?.count || 0)
+
+// Respuesta para tu API
+return `Tienes ${totalLotes} lotes en total.`
+
 
 // Respuesta simple
 return `Tienes ${lotesCount[0]?.count || 0} lotes en total.`
