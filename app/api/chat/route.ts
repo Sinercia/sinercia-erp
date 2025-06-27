@@ -20,8 +20,8 @@ console.log('🔗 DATABASE_URL:', process.env.DATABASE_URL?.substring(0, 50) + '
   const empresaCount = await prisma.$queryRaw`SELECT COUNT(*) as count FROM empresas`
 const lotesCount = await prisma.$queryRaw`SELECT COUNT(*) as count FROM lotes`
 
-console.log('🏢 Empresas encontradas:', (empresaCount[0] as any)?.count || 0)
-console.log('🏢 Cantidad de lotes:', (lotesCount[0] as any)?.count || 0)
+console.log('🏢 Empresas encontradas:', (empresaCount as any)[0]?.count || 0)
+console.log('🏢 Cantidad de lotes:', (lotesCount as any)[0]?.count || 0)
 
 // Respuesta simple
 return `Tienes ${lotesCount[0]?.count || 0} lotes en total.`
